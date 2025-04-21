@@ -48,18 +48,32 @@ function genratePassword(){
 
 copyIcon.style.display = "flex";
 copyIcon.addEventListener('click',() =>{
-    // let copy = "";
-    // copy = inputBox.value;
-    // console.log(copy);
-    // return copy;
-    if(inputBox.value != "" || inputBox.value.length >= 1){
-    navigator.clipboard.writeText(inputBox.value);
-    // copyIcon.style.display = "none";
-    // copyIcon.innerText = "check";
-    check.style.display = "flex";
-    copyIcon.style.display = "none";
-    check.title = "Password Copied";
-    } 
+    if(inputBox.value != "" && inputBox.value.length >= 1){
+        if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(inputBox.value).then(() => {
+                check.style.display = "flex";
+                copyIcon.style.display = "none";
+                check.title = "Password Copied";
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        } else {
+            // Fallback for browsers that do not support navigator.clipboard
+            let textArea = document.createElement("textarea");
+            textArea.value = inputBox.value;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                check.style.display = "flex";
+                copyIcon.style.display = "none";
+                check.title = "Password Copied";
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            document.body.removeChild(textArea);
+        }
+    }
     setTimeout(() =>{
         copyIcon.style.display = "flex";
         check.style.display = "none"; 

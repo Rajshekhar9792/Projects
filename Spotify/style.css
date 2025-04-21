@@ -111,3 +111,72 @@ border-radius: 16px;
     transition: opacity 0.8s ease-in;
 }
 
+@media only screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .container {
+        width: 95%;
+        flex-direction: column;
+        padding: 20px 10px;
+        margin: 10px auto;
+        background-size: cover;
+    }
+
+    .bottom {
+        height: auto;
+        margin: 20px 0;
+        padding: 10px 0;
+    }
+
+    #myProgressBar {
+        width: 95vw;
+    }
+
+    .songItem {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+        margin: 10px 0;
+    }
+
+    .songItem img {
+        height: 60px;
+        margin: 0 auto 10px auto;
+        display: block;
+    }
+
+    .timeStamp {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .songInfo {
+        position: static;
+        left: auto;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .brand {
+        font-size: 1.1rem;
+        justify-content: center;
+    }
+
+    .brand img {
+        width: 36px;
+        padding: 0 5px;
+    }
+}
+
+

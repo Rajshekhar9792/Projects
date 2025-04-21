@@ -130,7 +130,7 @@
     width: 50%;
 }
 
-@media only screen and (max-width: 470px) {
+@media only screen and (max-width:  768px) {
     #footer .res {
         flex-direction: column;
         justify-content: center;
@@ -145,3 +145,6 @@
         padding: 0;
     }
 }
+
+
+
